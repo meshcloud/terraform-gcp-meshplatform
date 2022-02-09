@@ -1,4 +1,4 @@
-# meshPlatform GCP Module
+# GCP meshPlatform Module
 
 Terraform module to integrate GCP as a meshPlatform into meshStack instance.
 
