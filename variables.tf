@@ -41,11 +41,11 @@ variable "billing_dataset_project_id" {
 variable "replicator_sa_name" {
   type        = string
   description = "Name of the service account to create for Replicator"
-  default = "mesh-replicator-service-tf"
+  default     = "mesh-replicator-service-tf"
 }
 
 variable "kraken_sa_name" {
   type        = string
   description = "Name of the service account to create for Kraken"
-  default = "mesh-kraken-service-tf"
+  default     = "mesh-kraken-service-tf"
 }
