@@ -1,0 +1,21 @@
+name: Terraform CI
+
+on: push
+
+jobs:
+  validate:
+    name: Validate
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code  
+      uses: actions/checkout@v1
+
+    - uses: hashicorp/setup-terraform@v1
+      with:
+        terraform_version: 1.0.10
+
+    - run: terraform init
+
+    - run: terraform validate
+
+    - run: terraform fmt -recursive -check
