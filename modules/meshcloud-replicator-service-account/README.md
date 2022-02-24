@@ -1,8 +1,16 @@
+## Requirements
+
+No requirements.
+
 ## Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_google"></a> [google](#provider\_google) | n/a |
+
+## Modules
+
+No modules.
 
 ## Resources
 
@@ -32,7 +40,7 @@
 
 | Name | Description |
 |------|-------------|
-| <a name="output_replicator_manual_setup"></a> [replicator\_manual\_setup](#output\_replicator\_manual\_setup) | further manual setup is required because currently there is no way to figure out the role id and do GSuite calls needed with Terraform. See this ticket in a custom TF module: https://github.com/DeviaVir/terraform-provider-gsuite/issues/147 |
-| <a name="output_sa_email"></a> [sa\_email](#output\_sa\_email) | Service Account email |
-| <a name="output_sa_key"></a> [sa\_key](#output\_sa\_key) | Service Account Key (base64 encoded credential.json) |
+| <a name="output_replicator_manual_setup"></a> [replicator\_manual\_setup](#output\_replicator\_manual\_setup) | Replicator service account setup information. |
+| <a name="output_sa_email"></a> [sa\_email](#output\_sa\_email) | Service account email. |
+| <a name="output_sa_key"></a> [sa\_key](#output\_sa\_key) | Service account key (base64 encoded credential.json). |
 | <a name="output_sa_unique_id"></a> [sa\_unique\_id](#output\_sa\_unique\_id) | The unique ID of the Service Account |

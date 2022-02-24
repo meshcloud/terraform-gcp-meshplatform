@@ -1,8 +1,16 @@
+## Requirements
+
+No requirements.
+
 ## Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_google"></a> [google](#provider\_google) | n/a |
+
+## Modules
+
+No modules.
 
 ## Resources
 
@@ -30,4 +38,4 @@
 
 | Name | Description |
 |------|-------------|
-| <a name="output_sa_key"></a> [sa\_key](#output\_sa\_key) | Service Account Key (base64 encoded credential.json) |
+| <a name="output_sa_key"></a> [sa\_key](#output\_sa\_key) | Service account key (base64 encoded credential.json) |

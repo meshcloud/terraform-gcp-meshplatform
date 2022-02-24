@@ -1,8 +1,16 @@
+## Requirements
+
+No requirements.
+
 ## Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_google"></a> [google](#provider\_google) | n/a |
+
+## Modules
+
+No modules.
 
 ## Resources
 
