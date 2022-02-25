@@ -15,10 +15,10 @@ resource "google_project_service" "cloudbilling_api" {
 }
 
 resource "google_organization_iam_custom_role" "replicator_service" {
-  role_id     = "meshcloud_replicator_service"
+  role_id     = "${replace(var.sa_name, "-", "_")}_service"
   org_id      = var.org_id
-  title       = "meshcloud replicator service role"
-  description = "Role for the meshcloud replicator ServiceAccount used for project replication. See https://docs.meshcloud.io/docs/meshstack.gcp.index.html#service-account-configuration"
+  title       = "${var.sa_name} service role"
+  description = "Role for ${var.sa_name} service account used for project replication. See https://docs.meshcloud.io/docs/meshstack.gcp.index.html#service-account-configuration"
   permissions = [
     "resourcemanager.folders.get",
     "resourcemanager.folders.list",
@@ -45,10 +45,10 @@ resource "google_organization_iam_custom_role" "replicator_service" {
 }
 
 resource "google_organization_iam_custom_role" "replicator_billing" {
-  role_id     = "meshcloud_replicator_billing"
+  role_id     = "${replace(var.sa_name, "-", "_")}_billing"
   org_id      = var.billing_org_id
-  title       = "meshcloud replicator billing role"
-  description = "Role for the meshcloud replicator service account to create Billing Associations. See https://docs.meshcloud.io/docs/meshstack.gcp.index.html#service-account-configuration"
+  title       = "${var.sa_name} billing role"
+  description = "Role for the ${var.sa_name} service account to create Billing Associations. See https://docs.meshcloud.io/docs/meshstack.gcp.index.html#service-account-configuration"
   permissions = [
     "billing.resourceAssociations.create"
   ]

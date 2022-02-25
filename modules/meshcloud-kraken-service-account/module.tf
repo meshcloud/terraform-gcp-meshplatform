@@ -5,7 +5,7 @@ resource "google_project_service" "bigquery_api" {
 
 resource "google_service_account" "meshcloud_kraken_sa" {
   account_id   = var.sa_name
-  display_name = "meshcloud kraken service account"
+  display_name = "${var.sa_name} service account"
   description  = "This service account is used by meshcloud to obtain billing and related information for the kraken module"
   project      = var.meshstack_root_project_id
 }
@@ -25,10 +25,10 @@ resource "google_project_iam_member" "biquery_dataViewer" {
 }
 
 resource "google_organization_iam_custom_role" "meshcloud_kraken_sa" {
-  role_id     = "meshcloud_kraken_service"
+  role_id     = "${replace(var.sa_name, "-", "_")}_service"
   org_id      = var.org_id
-  title       = "meshcloud kraken service role"
-  description = "Role for the meshcloud kraken service account used for project billing. See https://docs.meshcloud.io/docs/meshstack.gcp.metering.html#service-account-configuration"
+  title       = "${var.sa_name} service role"
+  description = "Role for ${var.sa_name} service account used for project billing. See https://docs.meshcloud.io/docs/meshstack.gcp.metering.html#service-account-configuration"
   permissions = [
     "resourcemanager.folders.get",
     "resourcemanager.folders.list",
