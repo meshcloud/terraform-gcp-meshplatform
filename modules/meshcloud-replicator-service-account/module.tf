@@ -6,12 +6,14 @@ resource "google_service_account" "replicator_service" {
 }
 
 resource "google_project_service" "admin_api" {
-  project = var.project_id
-  service = "admin.googleapis.com"
+  project            = var.project_id
+  service            = "admin.googleapis.com"
+  disable_on_destroy = false
 }
 resource "google_project_service" "cloudbilling_api" {
-  project = var.project_id
-  service = "cloudbilling.googleapis.com"
+  project            = var.project_id
+  service            = "cloudbilling.googleapis.com"
+  disable_on_destroy = false
 }
 
 resource "google_organization_iam_custom_role" "replicator_service" {

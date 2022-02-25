@@ -1,6 +1,7 @@
 resource "google_project_service" "bigquery_api" {
-  project = var.meshstack_root_project_id
-  service = "bigquery.googleapis.com"
+  project            = var.meshstack_root_project_id
+  service            = "bigquery.googleapis.com"
+  disable_on_destroy = false
 }
 
 resource "google_service_account" "meshcloud_kraken_sa" {
