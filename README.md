@@ -6,6 +6,18 @@ Terraform module to integrate GCP as a meshPlatform into meshStack instance. Wit
 
 To run this module, you need the following:
 
+- Project level permissions. Make sure you login with a user with atleast the following permissions:
+
+    ```sh
+    iam.serviceAccountKeys.create
+    iam.serviceAccountKeys.get
+    iam.serviceAccountKeys.list
+    iam.serviceAccounts.get
+    iam.serviceAccounts.list
+    serviceusage.services.list
+    serviceusage.services.use
+    ```
+
 - [Terraform installed](https://learn.hashicorp.com/tutorials/terraform/install-cli)
 - [gcloud installed](https://cloud.google.com/sdk/docs/install)
 
