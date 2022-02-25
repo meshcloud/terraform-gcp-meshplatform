@@ -4,7 +4,7 @@ resource "google_project_iam_custom_role" "replicator_service" {
   role_id     = "meshcloud_replicator_gdm_bucket_access"
   project     = var.project_id
   title       = "meshcloud replicator GDM template bucket access"
-  description = "Role for the meshcloud replicator ServiceAccount to access GDM Templates referenced in Landing Zones. See https://docs.meshcloud.io/docs/meshstack.gcp.landing-zones.html"
+  description = "Role for the meshcloud replicator service account to access GDM Templates referenced in Landing Zones. See https://docs.meshcloud.io/docs/meshstack.gcp.landing-zones.html"
   permissions = [
     "storage.buckets.get",
     "storage.buckets.getIamPolicy",

@@ -1,8 +1,3 @@
-variable "project_name" {
-  type        = string
-  description = "GCP Project name where to create the resources. This is typically a 'meshstack-root' project"
-}
-
 variable "project_id" {
   type        = string
   description = "GCP Project ID where to create the resources. This is typically a 'meshstack-root' project"

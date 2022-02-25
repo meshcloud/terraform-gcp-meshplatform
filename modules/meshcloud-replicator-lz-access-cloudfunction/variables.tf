@@ -1,11 +1,11 @@
 variable "sa_email" {
   type        = string
-  description = "email of the meshcloud replicator ServiceAccount to invoke the cloud function"
+  description = "Email of the meshcloud replicator service account to invoke the cloud function"
 }
 
 variable "cloud_function" {
   type        = string
-  description = "The cloud function name that the replicator ServiceAccount invokes"
+  description = "The cloud function name that the replicator service account invokes"
 }
 
 variable "project_id" {

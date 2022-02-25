@@ -1,12 +1,14 @@
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| <a name="requirement_google"></a> [google](#requirement\_google) | 4.11.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | n/a |
+| <a name="provider_google"></a> [google](#provider\_google) | 4.11.0 |
 
 ## Modules
 
@@ -16,14 +18,14 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [google_billing_account_iam_member.replicator_service](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/billing_account_iam_member) | resource |
-| [google_folder_iam_member.replicator_service](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/folder_iam_member) | resource |
-| [google_organization_iam_custom_role.replicator_billing](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/organization_iam_custom_role) | resource |
-| [google_organization_iam_custom_role.replicator_service](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/organization_iam_custom_role) | resource |
-| [google_project_service.admin_api](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_service) | resource |
-| [google_project_service.cloudbilling_api](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_service) | resource |
-| [google_service_account.replicator_service](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account) | resource |
-| [google_service_account_key.sa_key](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/service_account_key) | resource |
+| [google_billing_account_iam_member.replicator_service](https://registry.terraform.io/providers/hashicorp/google/4.11.0/docs/resources/billing_account_iam_member) | resource |
+| [google_folder_iam_member.replicator_service](https://registry.terraform.io/providers/hashicorp/google/4.11.0/docs/resources/folder_iam_member) | resource |
+| [google_organization_iam_custom_role.replicator_billing](https://registry.terraform.io/providers/hashicorp/google/4.11.0/docs/resources/organization_iam_custom_role) | resource |
+| [google_organization_iam_custom_role.replicator_service](https://registry.terraform.io/providers/hashicorp/google/4.11.0/docs/resources/organization_iam_custom_role) | resource |
+| [google_project_service.admin_api](https://registry.terraform.io/providers/hashicorp/google/4.11.0/docs/resources/project_service) | resource |
+| [google_project_service.cloudbilling_api](https://registry.terraform.io/providers/hashicorp/google/4.11.0/docs/resources/project_service) | resource |
+| [google_service_account.replicator_service](https://registry.terraform.io/providers/hashicorp/google/4.11.0/docs/resources/service_account) | resource |
+| [google_service_account_key.sa_key](https://registry.terraform.io/providers/hashicorp/google/4.11.0/docs/resources/service_account_key) | resource |
 
 ## Inputs
 
@@ -34,7 +36,7 @@ No modules.
 | <a name="input_landing_zone_folder_ids"></a> [landing\_zone\_folder\_ids](#input\_landing\_zone\_folder\_ids) | GCP Folders that make up the Landing Zone. The service account will only receive permissions on these folders. | `set(string)` | n/a | yes |
 | <a name="input_org_id"></a> [org\_id](#input\_org\_id) | GCP Organization Id | `string` | n/a | yes |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | GCP Project ID where to create the resources. This is typically a 'meshstack-root' project | `string` | n/a | yes |
-| <a name="input_sa_name"></a> [sa\_name](#input\_sa\_name) | name of the ServiceAccount to create | `string` | n/a | yes |
+| <a name="input_sa_name"></a> [sa\_name](#input\_sa\_name) | name of the service account to create | `string` | n/a | yes |
 
 ## Outputs
 

@@ -1,6 +1,6 @@
 variable "sa_name" {
   type        = string
-  description = "name of the ServiceAccount to create"
+  description = "name of the service account to create"
 }
 
 variable "org_id" {

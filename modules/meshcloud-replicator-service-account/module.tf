@@ -1,10 +1,9 @@
 resource "google_service_account" "replicator_service" {
   account_id   = var.sa_name
   display_name = "meshcloud replicator service account"
-  description  = "This SA is used by meshcloud to replicate the desired cloud state into GCP"
+  description  = "This service account is used by meshcloud to replicate the desired cloud state into GCP"
   project      = var.project_id
 }
-
 
 resource "google_project_service" "admin_api" {
   project = var.project_id
@@ -49,7 +48,7 @@ resource "google_organization_iam_custom_role" "replicator_billing" {
   role_id     = "meshcloud_replicator_billing"
   org_id      = var.billing_org_id
   title       = "meshcloud replicator billing role"
-  description = "Role for the meshcloud replicator ServiceAccount to create Billing Associations. See https://docs.meshcloud.io/docs/meshstack.gcp.index.html#service-account-configuration"
+  description = "Role for the meshcloud replicator service account to create Billing Associations. See https://docs.meshcloud.io/docs/meshstack.gcp.index.html#service-account-configuration"
   permissions = [
     "billing.resourceAssociations.create"
   ]
