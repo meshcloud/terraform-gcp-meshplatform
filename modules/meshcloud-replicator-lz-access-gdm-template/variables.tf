@@ -1,6 +1,6 @@
 variable "sa_email" {
   type        = string
-  description = "email of the meshcloud replicator service account to grant access to the Bucket where the GDM Templates are stored"
+  description = "Email of the meshcloud replicator service account to grant access to the Bucket where the GDM Templates are stored"
 }
 
 variable "project_id" {

@@ -27,7 +27,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_bucket_name"></a> [bucket\_name](#input\_bucket\_name) | The bucket name in the project where the GDM Templates are stored | `string` | n/a | yes |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | GCP Project Id where the bucket is located | `string` | n/a | yes |
-| <a name="input_sa_email"></a> [sa\_email](#input\_sa\_email) | email of the meshcloud replicator service account to grant access to the Bucket where the GDM Templates are stored | `string` | n/a | yes |
+| <a name="input_sa_email"></a> [sa\_email](#input\_sa\_email) | Email of the meshcloud replicator service account to grant access to the Bucket where the GDM Templates are stored | `string` | n/a | yes |
 
 ## Outputs
 

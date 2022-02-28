@@ -1,4 +1,4 @@
-# meshPlatform GCP Module
+# GCP meshPlatform Module
 
 Terraform module to integrate GCP as a meshPlatform into meshStack instance. With this module, service accounts used by meshStack are created with the required permissions.
 
@@ -71,26 +71,6 @@ resource "google_project" "meshstack_root" {
     # The JSON output contains sensitive values that must not be transmitted to meshcloud in plain text.
     terraform output -json
     ```
-
-```hcl
-module "meshplatform" {
-  source = "git@github.com:meshcloud/terraform-gcp-meshplatform.git"
-
-  # common parameters
-  project_id = "..."
-  org_id   = "..."
-  landing_zone_folder_ids = [ "..." ]
-
-  # required for replicator
-  billing_org_id = "..."
-  billing_account_id = "..."
-
-  # required for kraken
-  billing_dataset_project_id = "..."
-}
-```
-
-This will create kraken and replicator service accounts.
 
 ## Example Usages
 

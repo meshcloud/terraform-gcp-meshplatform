@@ -1,6 +1,6 @@
 resource "google_service_account" "replicator_service" {
   account_id   = var.sa_name
-  display_name = "meshcloud replicator service account"
+  display_name = "${var.sa_name} service account"
   description  = "This service account is used by meshcloud to replicate the desired cloud state into GCP"
   project      = var.project_id
 }

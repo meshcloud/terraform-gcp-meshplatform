@@ -36,6 +36,8 @@ No resources.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_kraken_sa_email"></a> [kraken\_sa\_email](#output\_kraken\_sa\_email) | Kraken service account email. |
 | <a name="output_kraken_sa_key"></a> [kraken\_sa\_key](#output\_kraken\_sa\_key) | Kraken service account key. |
 | <a name="output_replicator_manual_setup"></a> [replicator\_manual\_setup](#output\_replicator\_manual\_setup) | Replicator service account setup information. |
+| <a name="output_replicator_sa_email"></a> [replicator\_sa\_email](#output\_replicator\_sa\_email) | Replicator service account email. |
 | <a name="output_replicator_sa_key"></a> [replicator\_sa\_key](#output\_replicator\_sa\_key) | Replicator service account key (base64 encoded credential.json). |
