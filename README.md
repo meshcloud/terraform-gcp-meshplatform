@@ -6,17 +6,49 @@ Terraform module to integrate GCP as a meshPlatform into meshStack instance. Wit
 
 To run this module, you need the following:
 
-- Project level permissions. Make sure you login with a user with atleast the following permissions:
+- Required permissions. The user or service account applying this module needs the following permissions:
+  
+  Project-level:
 
-    ```sh
-    iam.serviceAccountKeys.create
-    iam.serviceAccountKeys.get
-    iam.serviceAccountKeys.list
-    iam.serviceAccounts.get
-    iam.serviceAccounts.list
-    serviceusage.services.list
-    serviceusage.services.use
+    ```hcl
+    "iam.serviceAccountKeys.create",
+    "iam.serviceAccountKeys.get",
+    "iam.serviceAccountKeys.list",
+    "iam.serviceAccounts.get",
+    "iam.serviceAccounts.list",
+    "iam.serviceAccounts.create",
+    "iam.serviceAccounts.getIamPolicy",
+    "iam.serviceAccounts.setIamPolicy",
+    "serviceusage.services.list",
+    "serviceusage.services.use",
+    "serviceusage.services.get",
+    "resourcemanager.projects.get",
+    "resourcemanager.projects.getIamPolicy",
+    "resourcemanager.projects.setIamPolicy",
+    # Only required when you need your landing zone to invoke a cloud function
+    "cloudfunctions.functions.getIamPolicy",
+    "cloudfunctions.functions.setIamPolicy"
     ```
+
+  Organization-level:
+
+    ```hcl
+    "iam.roles.list",
+    "iam.roles.get",
+    "iam.roles.create",
+    "iam.roles.undelete",
+    "iam.roles.update",
+    "resourcemanager.folders.get",
+    "resourcemanager.folders.getIamPolicy",
+    "resourcemanager.folders.setIamPolicy",
+    "billing.accounts.getIamPolicy",
+    "billing.accounts.setIamPolicy",
+    # Only required when you need your landing zone to access the bucket containing your GDM templates
+    "storage.buckets.getIamPolicy",
+    "storage.buckets.setIamPolicy",
+    ```
+
+  You can create [custom roles](./custom-roles/main.tf) and assign them to the identity applying those modules.
 
 - [Terraform installed](https://learn.hashicorp.com/tutorials/terraform/install-cli)
 - [gcloud installed](https://cloud.google.com/sdk/docs/install)
