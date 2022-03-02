@@ -13,7 +13,7 @@ terraform {
 
 # Details of the parameters are in the module structure input description (top level TERRAFORM_DOCS.md)
 module "meshplatform" {
-  source = "git@github.com:meshcloud/terraform-gcp-meshplatform.git"
+  source = "git::https://github.com/meshcloud/terraform-gcp-meshplatform.git"
 
   # common parameters
   project_id = "..."
