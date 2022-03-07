@@ -80,24 +80,24 @@ resource "google_project" "meshstack_root" {
    gcloud auth application-default login
    ```
 
-2. Create a directory and change into it
-
-   ```sh
-   mkdir terraform-gcp-meshplatform
-   cd terraform-gcp-meshplatform
-   ```
-
-3. Create a `main.tf` and an `output.tf` files in the created directory that references this module
-   > See [Example Usages](#example-usages)
-
-4. Run
+2. Download the example `main.tf` and `outputs.tf` files.
 
     ```sh
+    # Downloads main.tf and outputs.tf files into ~/terraform-gcp-meshplatform
+    wget https://raw.githubusercontent.com/meshcloud/terraform-gcp-meshplatform/main/examples/basic-gcp-integration/main.tf -P ~/terraform-gcp-meshplatform
+    wget https://raw.githubusercontent.com/meshcloud/terraform-gcp-meshplatform/main/examples/basic-gcp-integration/outputs.tf -P ~/terraform-gcp-meshplatform
+    ```
+
+3. Execute the module.
+
+    ```sh
+    # Changes into ~/terraform-gcp-meshplatform and applies terraform
+    cd ~/terraform-gcp-meshplatform
     terraform init
     terraform apply
     ```
 
-5. Access terraform output and pass it securely to meshcloud.
+4. Access terraform output and pass it securely to meshcloud.
 
     ```sh
     # The JSON output contains sensitive values that must not be transmitted to meshcloud in plain text.
