@@ -20,7 +20,7 @@ output "sa_email" {
 output "replicator_manual_setup" {
   value       = <<EOF
   Attention. The created service account ${google_service_account.replicator_service.email} with the unique id '${google_service_account.replicator_service.unique_id}' needs a manual role assignment for the G Suite role 'Group Administrator' so necessary group operations can be performed domain-wide.
-  See https://docs.meshcloud.io/docs/meshstack.gcp.index.html#authorizing-the-service-account for instructions.
+  See https://docs.meshcloud.io/docs/meshstack.how-to.integrate-meshplatform-gcp-manually.html#authorize-the-service-account for instructions.
   EOF
   description = "Replicator service account setup information."
 }
