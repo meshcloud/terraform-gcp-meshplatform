@@ -104,6 +104,12 @@ resource "google_project" "meshstack_root" {
     terraform output -json
     ```
 
+5. Authorize the Replicator Service Account
+
+The replicator service account needs the "Groups Admin" role from the Admin Console (Workspace) to manage permissions for managed GCP projects.
+
+To authorize the Service Account **via the Google Admin Console** navigate to `@Account` in the sidebar and then `Admin Roles -> Groups Admin` and click `Assign Service Accounts`. In the prompt that appears, enter the service account email, which looks like `user@project.iam.gserviceaccount.com`.
+
 ## Example Usages
 
 Check [examples](./examples/) for different use cases. As a quick start we recommend using [basic-gcp-integration](./examples/basic-gcp-integration) example.
