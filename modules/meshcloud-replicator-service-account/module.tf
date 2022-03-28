@@ -10,9 +10,16 @@ resource "google_project_service" "admin_api" {
   service            = "admin.googleapis.com"
   disable_on_destroy = false
 }
+
 resource "google_project_service" "cloudbilling_api" {
   project            = var.project_id
   service            = "cloudbilling.googleapis.com"
+  disable_on_destroy = false
+}
+
+resource "google_project_service" "cloudresourcemanager_api" {
+  project            = var.project_id
+  service            = "cloudresourcemanager.googleapis.com"
   disable_on_destroy = false
 }
 
