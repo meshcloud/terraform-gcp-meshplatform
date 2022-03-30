@@ -30,11 +30,11 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_billing_dataset_project_id"></a> [billing\_dataset\_project\_id](#input\_billing\_dataset\_project\_id) | GCP Project ID where the biquery table resides that holds billing data export. | `string` | n/a | yes |
+| <a name="input_cloud_billing_export_project_id"></a> [cloud\_billing\_export\_project\_id](#input\_cloud\_billing\_export\_project\_id) | GCP Project where the BiqQery table resides that holds the Cloud Billing export to BigQuery. | `string` | n/a | yes |
 | <a name="input_landing_zone_folder_ids"></a> [landing\_zone\_folder\_ids](#input\_landing\_zone\_folder\_ids) | GCP Folders that make up the Landing Zone. The service account will only receive permissions on these folders. | `set(string)` | n/a | yes |
 | <a name="input_meshstack_root_project_id"></a> [meshstack\_root\_project\_id](#input\_meshstack\_root\_project\_id) | GCP Project ID where to create the service account. This is typically a 'meshstack-root' project. | `string` | n/a | yes |
 | <a name="input_org_id"></a> [org\_id](#input\_org\_id) | GCP Organization ID that holds the projects that generate billing data that the service account should import. | `string` | n/a | yes |
-| <a name="input_sa_name"></a> [sa\_name](#input\_sa\_name) | name of the service account to create | `string` | n/a | yes |
+| <a name="input_sa_name"></a> [sa\_name](#input\_sa\_name) | Name of the service account to create. | `string` | n/a | yes |
 
 ## Outputs
 

@@ -1,6 +1,6 @@
 variable "project_id" {
   type        = string
-  description = "GCP Project ID where to create the resources. This is typically a 'meshstack-root' project"
+  description = "GCP Project ID where to create the resources. This is typically a 'meshstack-root' project."
 }
 
 variable "org_id" {
@@ -10,7 +10,7 @@ variable "org_id" {
 
 variable "billing_org_id" {
   type        = string
-  description = "GCP organization ID that holds billing account"
+  description = "GCP organization ID that holds billing account."
 }
 
 variable "billing_account_id" {
@@ -45,12 +45,12 @@ variable "cloud_billing_export_table_id" {
 
 variable "replicator_sa_name" {
   type        = string
-  description = "Name of the service account to create for Replicator"
+  description = "Name of the service account to create for Replicator."
   default     = "mesh-replicator-service-tf"
 }
 
 variable "kraken_sa_name" {
   type        = string
-  description = "Name of the service account to create for Kraken"
+  description = "Name of the service account to create for Kraken."
   default     = "mesh-kraken-service-tf"
 }

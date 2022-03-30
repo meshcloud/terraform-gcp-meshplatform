@@ -24,6 +24,7 @@ No modules.
 | [google_organization_iam_custom_role.replicator_service](https://registry.terraform.io/providers/hashicorp/google/4.11.0/docs/resources/organization_iam_custom_role) | resource |
 | [google_project_service.admin_api](https://registry.terraform.io/providers/hashicorp/google/4.11.0/docs/resources/project_service) | resource |
 | [google_project_service.cloudbilling_api](https://registry.terraform.io/providers/hashicorp/google/4.11.0/docs/resources/project_service) | resource |
+| [google_project_service.cloudresourcemanager_api](https://registry.terraform.io/providers/hashicorp/google/4.11.0/docs/resources/project_service) | resource |
 | [google_service_account.replicator_service](https://registry.terraform.io/providers/hashicorp/google/4.11.0/docs/resources/service_account) | resource |
 | [google_service_account_key.sa_key](https://registry.terraform.io/providers/hashicorp/google/4.11.0/docs/resources/service_account_key) | resource |
 
