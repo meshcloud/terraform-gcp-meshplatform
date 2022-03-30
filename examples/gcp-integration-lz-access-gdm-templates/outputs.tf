@@ -14,3 +14,8 @@ output "kraken_sa_key" {
   value       = module.meshplatform.kraken_sa_key
   sensitive   = true
 }
+
+output "cloud_billing_export_table_name" {
+  description = "The BigQuery table name containing the GCP Cloud Billing BigQuery export."
+  value       = module.meshplatform.cloud_billing_export_table_name
+}
