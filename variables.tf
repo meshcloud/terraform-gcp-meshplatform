@@ -23,9 +23,19 @@ variable "landing_zone_folder_ids" {
   description = "GCP Folders that make up the Landing Zone. The service account will only receive permissions on these folders."
 }
 
-variable "billing_dataset_project_id" {
+variable "cloud_billing_export_project_id" {
   type        = string
-  description = "GCP Project ID where the biquery table resides that holds billing data export."
+  description = "GCP Project where the BiqQery table resides that holds the Cloud Billing export to BigQuery. See https://cloud.google.com/billing/docs/how-to/export-data-bigquery"
+}
+
+variable "cloud_billing_export_dataset_id" {
+  type        = string
+  description = "GCP BigQuery dataset containing the Cloud Billing BigQuery export."
+}
+
+variable "cloud_billing_export_table_id" {
+  type        = string
+  description = "GCP BigQuery table containing the Cloud Billing BigQuery export."
 }
 
 # ---------------------------------------------------------------------------------------------------------------------

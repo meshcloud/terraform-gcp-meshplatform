@@ -24,3 +24,8 @@ output "kraken_sa_key" {
   value       = module.kraken_sa.sa_key
   sensitive   = true
 }
+
+output "cloud_billing_export_table_name" {
+  description = "The BigQuery table name containing the GCP Cloud Billing BigQuery export."
+  value       = "${var.cloud_billing_export_table_id}.${var.cloud_billing_export_table_id}.${var.cloud_billing_export_table_id}"
+}
