@@ -28,6 +28,8 @@ module "meshplatform" {
 
   # required for kraken
   cloud_billing_export_project_id = "..."
+  cloud_billing_export_dataset_id = "..."
+  cloud_billing_export_table_id   = "..."
 }
 
 # Details of the parameters are in the module structure input description (module README.md)
