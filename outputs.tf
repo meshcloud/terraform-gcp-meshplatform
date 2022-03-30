@@ -27,5 +27,5 @@ output "kraken_sa_key" {
 
 output "cloud_billing_export_table_name" {
   description = "The BigQuery table name containing the GCP Cloud Billing BigQuery export."
-  value       = "${var.cloud_billing_export_table_id}.${var.cloud_billing_export_table_id}.${var.cloud_billing_export_table_id}"
+  value       = "${var.cloud_billing_export_project_id}.${var.cloud_billing_export_dataset_id}.${var.cloud_billing_export_table_id}"
 }
