@@ -30,12 +30,12 @@ variable "cloud_billing_export_project_id" {
 
 variable "cloud_billing_export_dataset_id" {
   type        = string
-  description = "GCP BigQuery dataset containing the Cloud Billing BigQuery export."
+  description = "GCP BigQuery dataset containing the Cloud Billing BigQuery export. This variable is only required to form the output for meshPlatform configuration. No resources are created or attached."
 }
 
 variable "cloud_billing_export_table_id" {
   type        = string
-  description = "GCP BigQuery table containing the Cloud Billing BigQuery export."
+  description = "GCP BigQuery table containing the Cloud Billing BigQuery export. This variable is only required to form the output for meshPlatform configuration. No resources are created or attached."
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
