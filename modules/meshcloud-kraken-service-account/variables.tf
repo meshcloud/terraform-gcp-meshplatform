@@ -13,9 +13,9 @@ variable "meshstack_root_project_id" {
   description = "GCP Project ID where to create the service account. This is typically a 'meshstack-root' project."
 }
 
-variable "billing_dataset_project_id" {
+variable "cloud_billing_export_project_id" {
   type        = string
-  description = "GCP Project ID where the biquery table resides that holds billing data export."
+  description = "GCP Project where the BiqQery table resides that holds the Cloud Billing export to BigQuery."
 }
 
 variable "landing_zone_folder_ids" {

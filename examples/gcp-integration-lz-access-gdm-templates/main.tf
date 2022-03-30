@@ -27,7 +27,7 @@ module "meshplatform" {
   billing_account_id = "..."
 
   # required for kraken
-  billing_dataset_project_id = "..."
+  cloud_billing_export_project_id = "..."
 }
 
 # Details of the parameters are in the module structure input description (module README.md)

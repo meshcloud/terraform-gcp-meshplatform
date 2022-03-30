@@ -19,7 +19,7 @@ resource "google_project_iam_member" "bigquery_jobuser" {
 }
 
 resource "google_project_iam_member" "biquery_dataViewer" {
-  project = var.billing_dataset_project_id
+  project = var.cloud_billing_export_project_id
   role    = "roles/bigquery.dataViewer"
 
   member = "serviceAccount:${google_service_account.meshcloud_kraken_sa.email}"
