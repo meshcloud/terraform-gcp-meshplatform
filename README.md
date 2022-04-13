@@ -53,6 +53,8 @@ To run this module, you need the following:
 - [Terraform installed](https://learn.hashicorp.com/tutorials/terraform/install-cli)
 - [gcloud installed](https://cloud.google.com/sdk/docs/install)
 
+Additionally, after the module has run, one of the Service Accounts needs to be granted a role in the Admin Console (Workspace). This can only be done by Super Administrators.
+
 ## Module Structure
 
 For an overview of the module structure, refer to [generated terraform docs](./TERRAFORM_DOCS.md)
