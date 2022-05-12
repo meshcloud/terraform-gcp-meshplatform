@@ -15,7 +15,7 @@ variable "meshstack_root_project_id" {
 
 variable "cloud_billing_export_project_id" {
   type        = string
-  description = "GCP Project where the BiqQuery table resides that holds the Cloud Billing export to BigQuery."
+  description = "GCP Project where the BigQuery table resides that holds the Cloud Billing export to BigQuery."
 }
 
 variable "landing_zone_folder_ids" {
