@@ -25,7 +25,7 @@ variable "landing_zone_folder_ids" {
 
 variable "cloud_billing_export_project_id" {
   type        = string
-  description = "GCP Project where the BiqQery table resides that holds the Cloud Billing export to BigQuery. See https://cloud.google.com/billing/docs/how-to/export-data-bigquery"
+  description = "GCP Project where the BiqQuery table resides that holds the Cloud Billing export to BigQuery. See https://cloud.google.com/billing/docs/how-to/export-data-bigquery"
 }
 
 variable "cloud_billing_export_dataset_id" {
@@ -53,4 +53,16 @@ variable "kraken_sa_name" {
   type        = string
   description = "Name of the service account to create for Kraken."
   default     = "mesh-kraken-service-tf"
+}
+
+variable "carbon_footprint_dataset_location" {
+  type        = string
+  description = "Location of BigQuery dataset for carbon footprint."
+  default     = "us-west1"
+}
+
+variable "carbon_footprint_dataset_id" {
+  type        = string
+  description = "Id of BigQuery dataset for carbon footprint."
+  default     = "carbon_footprint_data"
 }
