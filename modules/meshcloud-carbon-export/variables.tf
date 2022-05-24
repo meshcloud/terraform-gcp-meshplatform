@@ -15,5 +15,5 @@ variable "carbon_data_export_project_id" {
 
 variable "carbon_data_export_dataset_id" {
   type        = string
-  description = "GCP BigQuery dataset containing the Carbon Footprint BigQuery export. This variable is only required to form the output for meshPlatform configuration. No resources are created or attached."
+  description = "GCP BigQuery dataset containing the Carbon Footprint BigQuery export"
 }
