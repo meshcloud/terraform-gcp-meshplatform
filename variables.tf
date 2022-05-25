@@ -39,6 +39,16 @@ variable "cloud_billing_export_table_id" {
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
+# PARAMETERS to enable optional modules
+# ---------------------------------------------------------------------------------------------------------------------
+
+variable "carbon_export_module_enabled" {
+  type = bool
+  description = "Determines whether or not to include the resources of the carbon footprint export module."
+  default = false
+}
+
+# ---------------------------------------------------------------------------------------------------------------------
 # OPTIONAL PARAMETERS
 # These parameters have reasonable defaults.
 # ---------------------------------------------------------------------------------------------------------------------
