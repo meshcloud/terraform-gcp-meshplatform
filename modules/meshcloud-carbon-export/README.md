@@ -1,3 +1,4 @@
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
@@ -37,3 +38,4 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_carbon_footprint_export_table_name"></a> [carbon\_footprint\_export\_table\_name](#output\_carbon\_footprint\_export\_table\_name) | The BigQuery table name containing the GCP Carbon Footprint BigQuery export. |
+<!-- END_TF_DOCS -->

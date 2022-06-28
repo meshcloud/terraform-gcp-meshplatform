@@ -80,7 +80,7 @@ resource "google_folder_iam_member" "replicator_service" {
   The replicator needs the "billing.resourceAssociations.create" permission for the billing account. We
   don't want to use an organization level role assignment. It's not sufficient to create the role assignment on a folder level because the
   Billing Account "lives in the Organization" but outside the folder/project hierahchy. So we have to assign it the permission directly on the billing
-  account. 
+  account.
 */
 resource "google_billing_account_iam_member" "replicator_service" {
   billing_account_id = var.billing_account_id
