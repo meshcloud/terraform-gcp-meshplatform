@@ -1,3 +1,4 @@
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
@@ -42,3 +43,4 @@ No modules.
 |------|-------------|
 | <a name="output_sa_email"></a> [sa\_email](#output\_sa\_email) | Service account email. |
 | <a name="output_sa_key"></a> [sa\_key](#output\_sa\_key) | Service account key (base64 encoded credential.json). |
+<!-- END_TF_DOCS -->
