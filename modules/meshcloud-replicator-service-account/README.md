@@ -1,3 +1,4 @@
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
@@ -47,3 +48,4 @@ No modules.
 | <a name="output_sa_email"></a> [sa\_email](#output\_sa\_email) | Service account email. |
 | <a name="output_sa_key"></a> [sa\_key](#output\_sa\_key) | Service account key (base64 encoded credential.json). |
 | <a name="output_sa_unique_id"></a> [sa\_unique\_id](#output\_sa\_unique\_id) | The unique ID of the Service Account |
+<!-- END_TF_DOCS -->
