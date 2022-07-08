@@ -31,7 +31,12 @@ To run this module, you need the following:
     "resourcemanager.projects.setIamPolicy",
     # Only required when you need your landing zone to invoke a cloud function
     "cloudfunctions.functions.getIamPolicy",
-    "cloudfunctions.functions.setIamPolicy"
+    "cloudfunctions.functions.setIamPolicy",
+    # Only required for the optional submodule for exporting carbon data    
+    "resourcemanager.projects.update",
+    "serviceusage.services.enable",
+    "bigquery.transfers.update"
+
     ```
 
   Organization-level:
@@ -50,6 +55,8 @@ To run this module, you need the following:
     # Only required when you need your landing zone to access the bucket containing your GDM templates
     "storage.buckets.getIamPolicy",
     "storage.buckets.setIamPolicy",
+    # Only required for the optional submodule for exporting carbon data
+    "billing.accounts.getCarbonInformation"
     ```
 
   You can create [custom roles](./custom-roles/main.tf) and assign them to the identity applying those modules.
