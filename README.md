@@ -2,6 +2,10 @@
 
 Terraform module to integrate GCP as a meshPlatform into meshStack instance. With this module, service accounts used by meshStack are created with the required permissions.
 
+<p align="center">
+  <img src="/.github/Icon_GCP_Meshi_Hugs.png" width="250">
+</p>
+
 ## Prerequisites
 
 To run this module, you need the following:
