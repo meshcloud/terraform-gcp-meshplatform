@@ -3,8 +3,8 @@ output "replicator_sa_email" {
   description = "Replicator service account email."
 }
 
-output "replicator_sa_key" {
-  description = "Replicator service account key (base64 encoded credential.json)."
+output "replicator_sa_credentials_json" {
+  description = "Replicator service account key in credentials.json format, base64 encoded."
   value       = module.replicator_sa.sa_key
   sensitive   = true
 }
@@ -19,8 +19,8 @@ output "kraken_sa_email" {
   description = "Kraken service account email."
 }
 
-output "kraken_sa_key" {
-  description = "Kraken service account key."
+output "kraken_sa_credentials_json" {
+  description = "Kraken service account key in credentials.json format, base64 encoded."
   value       = module.kraken_sa.sa_key
   sensitive   = true
 }
