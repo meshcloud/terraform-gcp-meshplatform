@@ -42,7 +42,6 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_billing_export_manual_setup"></a> [billing\_export\_manual\_setup](#output\_billing\_export\_manual\_setup) | GCP Cloud Billing BigQuery export manual setup information. |
 | <a name="output_sa_email"></a> [sa\_email](#output\_sa\_email) | Service account email. |
 | <a name="output_sa_key"></a> [sa\_key](#output\_sa\_key) | Service account key (base64 encoded credential.json). |
 <!-- END_TF_DOCS -->
