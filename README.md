@@ -180,9 +180,9 @@ No resources.
 |------|-------------|
 | <a name="output_carbon_footprint_export_table_name"></a> [carbon\_footprint\_export\_table\_name](#output\_carbon\_footprint\_export\_table\_name) | The BigQuery table name containing the GCP Carbon Footprint BigQuery export. |
 | <a name="output_cloud_billing_export_table_name"></a> [cloud\_billing\_export\_table\_name](#output\_cloud\_billing\_export\_table\_name) | The BigQuery table name containing the GCP Cloud Billing BigQuery export. |
+| <a name="output_kraken_sa_credentials_json"></a> [kraken\_sa\_credentials\_json](#output\_kraken\_sa\_credentials\_json) | Kraken service account key in credentials.json format, base64 encoded. |
 | <a name="output_kraken_sa_email"></a> [kraken\_sa\_email](#output\_kraken\_sa\_email) | Kraken service account email. |
-| <a name="output_kraken_sa_key"></a> [kraken\_sa\_key](#output\_kraken\_sa\_key) | Kraken service account key. |
 | <a name="output_replicator_manual_setup"></a> [replicator\_manual\_setup](#output\_replicator\_manual\_setup) | Replicator service account setup information. |
+| <a name="output_replicator_sa_credentials_json"></a> [replicator\_sa\_credentials\_json](#output\_replicator\_sa\_credentials\_json) | Replicator service account key in credentials.json format, base64 encoded. |
 | <a name="output_replicator_sa_email"></a> [replicator\_sa\_email](#output\_replicator\_sa\_email) | Replicator service account email. |
-| <a name="output_replicator_sa_key"></a> [replicator\_sa\_key](#output\_replicator\_sa\_key) | Replicator service account key (base64 encoded credential.json). |
 <!-- END_TF_DOCS -->
