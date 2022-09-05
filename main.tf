@@ -25,8 +25,8 @@ module "carbon_export" {
   source = "./modules/meshcloud-carbon-export/"
   count  = var.carbon_export_module_enabled ? 1 : 0
 
-  carbon_data_export_dataset_id = var.carbon_footprint_dataset_id
   carbon_data_export_project_id = var.cloud_billing_export_project_id # using the same project as for billing
+  carbon_data_export_dataset_id = var.carbon_footprint_dataset_id
   carbon_dataset_region         = var.carbon_footprint_dataset_location
 
   billing_account_id = var.billing_account_id

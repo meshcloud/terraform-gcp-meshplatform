@@ -32,7 +32,7 @@ To run this module, you need the following:
     # Only required when you need your landing zone to invoke a cloud function
     "cloudfunctions.functions.getIamPolicy",
     "cloudfunctions.functions.setIamPolicy",
-    # Only required for the optional submodule for exporting carbon data    
+    # Only required for the optional submodule for exporting carbon data  
     "resourcemanager.projects.update",
     "serviceusage.services.enable",
     "bigquery.transfers.update"
@@ -177,6 +177,7 @@ No resources.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_carbon_footprint_export_table_name"></a> [carbon\_footprint\_export\_table\_name](#output\_carbon\_footprint\_export\_table\_name) | The BigQuery table name containing the GCP Carbon Footprint BigQuery export. |
 | <a name="output_cloud_billing_export_table_name"></a> [cloud\_billing\_export\_table\_name](#output\_cloud\_billing\_export\_table\_name) | The BigQuery table name containing the GCP Cloud Billing BigQuery export. |
 | <a name="output_kraken_sa_email"></a> [kraken\_sa\_email](#output\_kraken\_sa\_email) | Kraken service account email. |
 | <a name="output_kraken_sa_key"></a> [kraken\_sa\_key](#output\_kraken\_sa\_key) | Kraken service account key. |

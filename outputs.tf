@@ -29,3 +29,8 @@ output "cloud_billing_export_table_name" {
   description = "The BigQuery table name containing the GCP Cloud Billing BigQuery export."
   value       = "${var.cloud_billing_export_project_id}.${var.cloud_billing_export_dataset_id}.${var.cloud_billing_export_table_id}"
 }
+
+output "carbon_footprint_export_table_name" {
+  description = "The BigQuery table name containing the GCP Carbon Footprint BigQuery export."
+  value       = try(module.carbon_export[0].carbon_footprint_export_table_name, null)
+}
