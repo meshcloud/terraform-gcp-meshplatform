@@ -18,7 +18,20 @@ resource "google_bigquery_dataset" "carbon_data_export_dataset" {
   project       = var.carbon_data_export_project_id
 }
 
+data "google_project" "carbon_data_export_project" {
+  project_id = var.carbon_data_export_project_id
+}
+
+# allow the GCP SA running BigQuery Data Transfers to mint short term tokens for executing the transfer job
+resource "google_project_iam_member" "bigquerydatatransfer_permissions" {
+  project = data.google_project.carbon_data_export_project.project_id
+  role   = "roles/iam.serviceAccountShortTermTokenMinter"
+  member = "serviceAccount:service-${data.google_project.carbon_data_export_project.number}@gcp-sa-bigquerydatatransfer.iam.gserviceaccount.com"
+}
+
 resource "google_bigquery_data_transfer_config" "carbon_footprint_transfer_config" {
+  depends_on = [google_project_iam_member.bigquerydatatransfer_permissions]
+
   display_name           = "carbon-footprint-export-tf"
   location               = var.carbon_dataset_region
   data_source_id         = "61cede5a-0000-2440-ad42-883d24f8f7b8"
