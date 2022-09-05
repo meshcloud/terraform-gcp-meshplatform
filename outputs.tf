@@ -30,7 +30,17 @@ output "cloud_billing_export_table_name" {
   value       = "${var.cloud_billing_export_project_id}.${var.cloud_billing_export_dataset_id}.${var.cloud_billing_export_table_id}"
 }
 
+output "cloud_billing_export_manual_setup" {
+  description = "GCP Cloud Billing BigQuery export manual setup information."
+  value       = module.kraken_sa.billing_export_manual_setup
+}
+
 output "carbon_footprint_export_table_name" {
   description = "The BigQuery table name containing the GCP Carbon Footprint BigQuery export."
   value       = try(module.carbon_export[0].carbon_footprint_export_table_name, null)
+}
+
+output "carbon_footprint_export_manual_setup" {
+  description = "GCP Cloud Carbon Footprint BigQuery export manual setup information."
+  value       = try(module.carbon_export[0].carbon_footprint_export_manual_setup, null)
 }

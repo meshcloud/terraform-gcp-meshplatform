@@ -18,11 +18,12 @@ resource "google_project_iam_member" "bigquery_jobuser" {
   member = "serviceAccount:${google_service_account.meshcloud_kraken_sa.email}"
 }
 
-resource "google_project_iam_member" "biquery_dataViewer" {
-  project = var.cloud_billing_export_project_id
-  role    = "roles/bigquery.dataViewer"
+resource "google_bigquery_dataset_iam_member" "read_billing_export" {
+  project    = var.cloud_billing_export_project_id
+  dataset_id = var.cloud_billing_export_dataset_id
 
   member = "serviceAccount:${google_service_account.meshcloud_kraken_sa.email}"
+  role   = "roles/bigquery.dataViewer"
 }
 
 resource "google_organization_iam_custom_role" "meshcloud_kraken_sa" {
@@ -39,9 +40,9 @@ resource "google_organization_iam_custom_role" "meshcloud_kraken_sa" {
 }
 
 # We apply a hardened security configuration, i.e. we assign permissions only on LZ folders instead of the organization
-# root
+# root - this allows kraken to read projects
 
-resource "google_folder_iam_member" "replicator_service" {
+resource "google_folder_iam_member" "kraken_service" {
   for_each = var.landing_zone_folder_ids
 
   folder = each.value
