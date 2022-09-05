@@ -71,6 +71,8 @@ resource "google_bigquery_dataset_iam_binding" "carbon_export_transfer_permissio
 # is not a part of the currently supported data sources, see
 # https://cloud.google.com/bigquery/docs/use-service-accounts#data_sources_with_service_account_support
 resource "google_bigquery_data_transfer_config" "carbon_footprint_transfer_config" {
+  provider = google.carbon
+
   depends_on = [
     google_bigquery_dataset_iam_binding.carbon_export_transfer_permission,
     google_service_account_iam_policy.bigquerydatatransfer_permissions
@@ -83,7 +85,7 @@ resource "google_bigquery_data_transfer_config" "carbon_footprint_transfer_confi
   schedule               = "every day 08:00"
   destination_dataset_id = google_bigquery_dataset.carbon_data_export_dataset.dataset_id
   
-  service_account_name   = google_service_account.carbon_export_transfer.email
+  # service_account_name   = google_service_account.carbon_export_transfer.email
 
   params = {
     billing_accounts = var.billing_account_id

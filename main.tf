@@ -30,4 +30,9 @@ module "carbon_export" {
   carbon_dataset_region         = var.carbon_footprint_dataset_location
 
   billing_account_id = var.billing_account_id
+
+  providers = {
+    google = google
+    google.carbon = google.carbon
+  }
 }
