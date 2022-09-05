@@ -40,7 +40,7 @@ resource "google_service_account" "carbon_export_transfer" {
 }
 
 resource "google_service_account_iam_policy" "bigquerydatatransfer_permissions" {
-  service_account_id = google_service_account.carbon_export_transfer.account_id
+  service_account_id = google_service_account.carbon_export_transfer.name
   policy_data        = data.google_iam_policy.carbon_export_transfer.policy_data
 }
 
