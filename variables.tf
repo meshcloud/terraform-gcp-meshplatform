@@ -30,7 +30,13 @@ variable "cloud_billing_export_project_id" {
 
 variable "cloud_billing_export_dataset_id" {
   type        = string
-  description = "GCP BigQuery dataset containing the Cloud Billing BigQuery export."
+  description = <<EOF
+    GCP BigQuery dataset containing the Cloud Billing BigQuery export.
+
+    **ATTENTION**
+    You need to manually configure the billing account big query export before exceuting this module.
+    See https://docs.meshcloud.io/docs/meshstack.how-to.integrate-meshplatform-gcp-manually.html#set-up-gcp-billing-data-export for instructions.
+  EOF
 }
 
 variable "cloud_billing_export_table_id" {
@@ -72,5 +78,11 @@ variable "cloud_carbon_export_project_id" {
 
 variable "cloud_carbon_export_dataset_id" {
   type        = string
-  description = "GCP BigQuery dataset containing the Cloud Carbon Footprint BigQuery export."
+  description = <<EOF
+    GCP BigQuery dataset containing the Carbon Footprint BigQuery export.
+
+    **ATTENTION**
+    You need to manually configure the carbon footprint export transfer config before exceuting this module.
+    See https://docs.meshcloud.io/docs/meshstack.how-to.integrate-meshplatform-gcp-manually.html#optional-enable-gcp-cloud-carbon-footprint-export for instructions."
+  EOF
 }

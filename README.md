@@ -34,10 +34,7 @@ To run this module, you need the following:
     "cloudfunctions.functions.setIamPolicy",
 
     # Only required for the optional submodule for exporting carbon data  
-    "resourcemanager.projects.update",
-    "serviceusage.services.enable",
-    "bigquery.datasets.get",
-    "bigquery.datasets.update"
+    "resourcemanager.projects.update"
     ```
 
   Organization-level:
@@ -55,9 +52,7 @@ To run this module, you need the following:
     "billing.accounts.setIamPolicy",
     # Only required when you need your landing zone to access the bucket containing your GDM templates
     "storage.buckets.getIamPolicy",
-    "storage.buckets.setIamPolicy",
-    # Only required for the optional submodule for exporting carbon data
-    "billing.accounts.getCarbonInformation"
+    "storage.buckets.setIamPolicy"
     ```
 
   You can create [custom roles](./custom-roles/main.tf) and assign them to the identity applying those modules.
@@ -81,6 +76,11 @@ resource "google_project" "meshstack_root" {
   billing_account    = <BILLING_ACCOUNT_ID>
 }
 ```
+
+To provide some of the required variables, you will need to
+
+- setup GCP Cloud Billing Export, see [cloud_billing_export_dataset_id](#input_cloud_billing_export_dataset_id)
+- *optionally* setup GCP Cloud Carbon Footprint Exports, see [cloud_carbon_export_dataset_id](#input_cloud_carbon_export_dataset_id)
 
 ### Using CLI
 
@@ -118,12 +118,6 @@ resource "google_project" "meshstack_root" {
 
     The replicator service account needs the "Groups Admin" role from the Admin Console (Workspace) to manage permissions for managed GCP projects.
     To authorize the Service Account **via the Google Admin Console** navigate to `@Account` in the sidebar and then `Admin Roles -> Groups Admin` and click `Assign Service Accounts`. In the prompt that appears, enter the service account email, which looks like `user@project.iam.gserviceaccount.com`.
-
-6. Optional: Enable GCP Cloud Carbon Footprint Export Transfer
-
-    When configuring the module with `carbon_export_module_enabled = true`, you need to manually set up the GCP
-    data transfer config.
-
 
 ## Example Usages
 
@@ -169,10 +163,10 @@ No resources.
 | <a name="input_billing_account_id"></a> [billing\_account\_id](#input\_billing\_account\_id) | The GCP billing account in your organization. | `string` | n/a | yes |
 | <a name="input_billing_org_id"></a> [billing\_org\_id](#input\_billing\_org\_id) | GCP organization ID that holds billing account. | `string` | n/a | yes |
 | <a name="input_carbon_export_module_enabled"></a> [carbon\_export\_module\_enabled](#input\_carbon\_export\_module\_enabled) | Determines whether or not to include the resources of the carbon footprint export module. | `bool` | `false` | no |
-| <a name="input_cloud_billing_export_dataset_id"></a> [cloud\_billing\_export\_dataset\_id](#input\_cloud\_billing\_export\_dataset\_id) | GCP BigQuery dataset containing the Cloud Billing BigQuery export. | `string` | n/a | yes |
+| <a name="input_cloud_billing_export_dataset_id"></a> [cloud\_billing\_export\_dataset\_id](#input\_cloud\_billing\_export\_dataset\_id) | GCP BigQuery dataset containing the Cloud Billing BigQuery export.<br><br>    **ATTENTION**<br>    You need to manually configure the billing account big query export before exceuting this module.<br>    See https://docs.meshcloud.io/docs/meshstack.how-to.integrate-meshplatform-gcp-manually.html#set-up-gcp-billing-data-export for instructions. | `string` | n/a | yes |
 | <a name="input_cloud_billing_export_project_id"></a> [cloud\_billing\_export\_project\_id](#input\_cloud\_billing\_export\_project\_id) | GCP Project where the BiqQuery table resides that holds the Cloud Billing export to BigQuery. See https://cloud.google.com/billing/docs/how-to/export-data-bigquery | `string` | n/a | yes |
 | <a name="input_cloud_billing_export_table_id"></a> [cloud\_billing\_export\_table\_id](#input\_cloud\_billing\_export\_table\_id) | GCP BigQuery table containing the Cloud Billing BigQuery export. This variable is only required to form the output for meshPlatform configuration. No resources are created or attached. | `string` | n/a | yes |
-| <a name="input_cloud_carbon_export_dataset_id"></a> [cloud\_carbon\_export\_dataset\_id](#input\_cloud\_carbon\_export\_dataset\_id) | GCP BigQuery dataset containing the Cloud Carbon Footprint BigQuery export. | `string` | n/a | yes |
+| <a name="input_cloud_carbon_export_dataset_id"></a> [cloud\_carbon\_export\_dataset\_id](#input\_cloud\_carbon\_export\_dataset\_id) | GCP BigQuery dataset containing the Carbon Footprint BigQuery export.<br><br>    **ATTENTION**<br>    You need to manually configure the carbon footprint export transfer config before exceuting this module.<br>    See https://docs.meshcloud.io/docs/meshstack.how-to.integrate-meshplatform-gcp-manually.html#optional-enable-gcp-cloud-carbon-footprint-export for instructions." | `string` | n/a | yes |
 | <a name="input_cloud_carbon_export_project_id"></a> [cloud\_carbon\_export\_project\_id](#input\_cloud\_carbon\_export\_project\_id) | GCP Project where the BiqQuery table resides that holds the Cloud Carbon Footprint export to BigQuery. | `string` | n/a | yes |
 | <a name="input_kraken_sa_name"></a> [kraken\_sa\_name](#input\_kraken\_sa\_name) | Name of the service account to create for Kraken. | `string` | `"mesh-kraken-service-tf"` | no |
 | <a name="input_landing_zone_folder_ids"></a> [landing\_zone\_folder\_ids](#input\_landing\_zone\_folder\_ids) | GCP Folders that make up the Landing Zone. The service account will only receive permissions on these folders. | `list(string)` | n/a | yes |
@@ -184,9 +178,7 @@ No resources.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_carbon_footprint_export_manual_setup"></a> [carbon\_footprint\_export\_manual\_setup](#output\_carbon\_footprint\_export\_manual\_setup) | GCP Cloud Carbon Footprint BigQuery export manual setup information. |
 | <a name="output_carbon_footprint_export_table_name"></a> [carbon\_footprint\_export\_table\_name](#output\_carbon\_footprint\_export\_table\_name) | The BigQuery table name containing the GCP Carbon Footprint BigQuery export. |
-| <a name="output_cloud_billing_export_manual_setup"></a> [cloud\_billing\_export\_manual\_setup](#output\_cloud\_billing\_export\_manual\_setup) | GCP Cloud Billing BigQuery export manual setup information. |
 | <a name="output_cloud_billing_export_table_name"></a> [cloud\_billing\_export\_table\_name](#output\_cloud\_billing\_export\_table\_name) | The BigQuery table name containing the GCP Cloud Billing BigQuery export. |
 | <a name="output_kraken_sa_email"></a> [kraken\_sa\_email](#output\_kraken\_sa\_email) | Kraken service account email. |
 | <a name="output_kraken_sa_key"></a> [kraken\_sa\_key](#output\_kraken\_sa\_key) | Kraken service account key. |
