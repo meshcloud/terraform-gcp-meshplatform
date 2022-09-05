@@ -21,8 +21,13 @@ No modules.
 |------|------|
 | [google_bigquery_data_transfer_config.carbon_footprint_transfer_config](https://registry.terraform.io/providers/hashicorp/google/4.11.0/docs/resources/bigquery_data_transfer_config) | resource |
 | [google_bigquery_dataset.carbon_data_export_dataset](https://registry.terraform.io/providers/hashicorp/google/4.11.0/docs/resources/bigquery_dataset) | resource |
+| [google_bigquery_dataset_iam_binding.carbon_export_transfer_permission](https://registry.terraform.io/providers/hashicorp/google/4.11.0/docs/resources/bigquery_dataset_iam_binding) | resource |
 | [google_project_service.bigquery_api](https://registry.terraform.io/providers/hashicorp/google/4.11.0/docs/resources/project_service) | resource |
 | [google_project_service.bigquerydatatransfer_api](https://registry.terraform.io/providers/hashicorp/google/4.11.0/docs/resources/project_service) | resource |
+| [google_service_account.carbon_export_transfer](https://registry.terraform.io/providers/hashicorp/google/4.11.0/docs/resources/service_account) | resource |
+| [google_service_account_iam_policy.bigquerydatatransfer_permissions](https://registry.terraform.io/providers/hashicorp/google/4.11.0/docs/resources/service_account_iam_policy) | resource |
+| [google_iam_policy.carbon_export_transfer](https://registry.terraform.io/providers/hashicorp/google/4.11.0/docs/data-sources/iam_policy) | data source |
+| [google_project.carbon_data_export_project](https://registry.terraform.io/providers/hashicorp/google/4.11.0/docs/data-sources/project) | data source |
 
 ## Inputs
 

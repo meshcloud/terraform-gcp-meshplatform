@@ -29,11 +29,11 @@ To run this module, you need the following:
     "resourcemanager.projects.get",
     "resourcemanager.projects.getIamPolicy",
     "resourcemanager.projects.setIamPolicy",
-    
+
     # Only required when you need your landing zone to invoke a cloud function
     "cloudfunctions.functions.getIamPolicy",
     "cloudfunctions.functions.setIamPolicy",
-    
+
     # Only required for the optional submodule for exporting carbon data  
     "resourcemanager.projects.update",
     "serviceusage.services.enable",
