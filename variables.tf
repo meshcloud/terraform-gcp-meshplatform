@@ -30,7 +30,7 @@ variable "cloud_billing_export_project_id" {
 
 variable "cloud_billing_export_dataset_id" {
   type        = string
-  description = "GCP BigQuery dataset containing the Cloud Billing BigQuery export. This variable is only required to form the output for meshPlatform configuration. No resources are created or attached."
+  description = "GCP BigQuery dataset containing the Cloud Billing BigQuery export."
 }
 
 variable "cloud_billing_export_table_id" {
@@ -65,14 +65,12 @@ variable "kraken_sa_name" {
   default     = "mesh-kraken-service-tf"
 }
 
-variable "carbon_footprint_dataset_location" {
+variable "cloud_carbon_export_project_id" {
   type        = string
-  description = "Location of BigQuery dataset for carbon footprint."
-  default     = "us-west1"
+  description = "GCP Project where the BiqQuery table resides that holds the Cloud Carbon Footprint export to BigQuery."
 }
 
-variable "carbon_footprint_dataset_id" {
+variable "cloud_carbon_export_dataset_id" {
   type        = string
-  description = "Id of BigQuery dataset for carbon footprint."
-  default     = "carbon_footprint_data"
+  description = "GCP BigQuery dataset containing the Cloud Carbon Footprint BigQuery export."
 }

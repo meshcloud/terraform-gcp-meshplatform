@@ -18,6 +18,11 @@ variable "cloud_billing_export_project_id" {
   description = "GCP Project where the BigQuery table resides that holds the Cloud Billing export to BigQuery."
 }
 
+variable "cloud_billing_export_dataset_id" {
+  type        = string
+  description = "GCP BigQuery dataset containing the Cloud Billing BigQuery export."
+}
+
 variable "landing_zone_folder_ids" {
   type        = set(string)
   description = "GCP Folders that make up the Landing Zone. The service account will only receive permissions on these folders."
