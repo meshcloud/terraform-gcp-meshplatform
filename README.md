@@ -1,6 +1,6 @@
 # GCP meshPlatform Module
 
-Terraform module to integrate GCP as a meshPlatform into meshStack instance. With this module, service accounts used by meshStack are created with the required permissions.
+Terraform module to integrate GCP as a meshPlatform into meshStack instance. With this module, service accounts used by meshStack are created with the required permissions. The output of this module is a set of credentials that need to be configured in meshStack as described in [meshcloud public docs](https://docs.meshcloud.io/docs/meshstack.how-to.integrate-meshplatform.html). 
 
 <p align="center">
   <img src="/.github/Icon_GCP_Meshi_Hugs.png" width="250">
