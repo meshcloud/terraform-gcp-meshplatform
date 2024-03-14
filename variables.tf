@@ -86,3 +86,21 @@ variable "cloud_carbon_export_dataset_id" {
     See https://docs.meshcloud.io/docs/meshstack.how-to.integrate-meshplatform-gcp-manually.html#optional-enable-gcp-cloud-carbon-footprint-export for instructions."
   EOF
 }
+
+variable "service_account_keys" {
+  default     = true
+  type        = bool
+  description = "Create service account keys for authentication."
+}
+
+variable "workload_identity_federation" {
+  default = null
+  type = object({
+    workload_identity_pool_identifier = string
+    issuer                            = string
+    audience                          = string
+    replicator_subject                = string
+    kraken_subject                    = string
+  })
+  description = "Setup workload identity federation for authentication."
+}

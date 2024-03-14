@@ -3,13 +3,13 @@
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_google"></a> [google](#requirement\_google) | 4.11.0 |
+| <a name="requirement_google"></a> [google](#requirement\_google) | 5.19.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 4.11.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 5.19.0 |
 
 ## Modules
 
@@ -19,8 +19,8 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [google_project_iam_custom_role.replicator_service](https://registry.terraform.io/providers/hashicorp/google/4.11.0/docs/resources/project_iam_custom_role) | resource |
-| [google_storage_bucket_iam_member.google_deployment_manager_service_account](https://registry.terraform.io/providers/hashicorp/google/4.11.0/docs/resources/storage_bucket_iam_member) | resource |
+| [google_project_iam_custom_role.replicator_service](https://registry.terraform.io/providers/hashicorp/google/5.19.0/docs/resources/project_iam_custom_role) | resource |
+| [google_storage_bucket_iam_member.google_deployment_manager_service_account](https://registry.terraform.io/providers/hashicorp/google/5.19.0/docs/resources/storage_bucket_iam_member) | resource |
 
 ## Inputs
 
