@@ -138,11 +138,13 @@ Before opening a Pull Request, we recommend following the below steps to get a f
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_google"></a> [google](#requirement\_google) | 4.11.0 |
+| <a name="requirement_google"></a> [google](#requirement\_google) | 5.19.0 |
 
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| <a name="provider_google"></a> [google](#provider\_google) | 5.19.0 |
 
 ## Modules
 
@@ -154,7 +156,10 @@ No providers.
 
 ## Resources
 
-No resources.
+| Name | Type |
+|------|------|
+| [google_iam_workload_identity_pool.meshstack](https://registry.terraform.io/providers/hashicorp/google/5.19.0/docs/resources/iam_workload_identity_pool) | resource |
+| [google_iam_workload_identity_pool_provider.meshstack](https://registry.terraform.io/providers/hashicorp/google/5.19.0/docs/resources/iam_workload_identity_pool_provider) | resource |
 
 ## Inputs
 
@@ -173,6 +178,8 @@ No resources.
 | <a name="input_org_id"></a> [org\_id](#input\_org\_id) | GCP Organization ID that holds the projects that generate billing data that the service account should import. | `string` | n/a | yes |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | GCP Project ID where to create the resources. This is typically a 'meshstack-root' project. | `string` | n/a | yes |
 | <a name="input_replicator_sa_name"></a> [replicator\_sa\_name](#input\_replicator\_sa\_name) | Name of the service account to create for Replicator. | `string` | `"mesh-replicator-service-tf"` | no |
+| <a name="input_service_account_keys"></a> [service\_account\_keys](#input\_service\_account\_keys) | Create service account keys for authentication. | `bool` | `true` | no |
+| <a name="input_workload_identity_federation"></a> [workload\_identity\_federation](#input\_workload\_identity\_federation) | Setup workload identity federation for authentication. | <pre>object({<br>    workload_identity_pool_identifier = string<br>    issuer                            = string<br>    audience                          = string<br>    replicator_subject                = string<br>    kraken_subject                    = string<br>  })</pre> | `null` | no |
 
 ## Outputs
 

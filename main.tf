@@ -8,6 +8,12 @@ module "kraken_sa" {
 
   cloud_billing_export_project_id = var.cloud_billing_export_project_id
   cloud_billing_export_dataset_id = var.cloud_billing_export_dataset_id
+
+  service_account_key = var.service_account_keys
+  workload_identity_federation = var.workload_identity_federation == null ? null : {
+    pool_id = google_iam_workload_identity_pool.meshstack[0].name
+    subject = var.workload_identity_federation.kraken_subject
+  }
 }
 
 module "replicator_sa" {
@@ -21,6 +27,12 @@ module "replicator_sa" {
   landing_zone_folder_ids = var.landing_zone_folder_ids
 
   billing_account_id = var.billing_account_id
+
+  service_account_key = var.service_account_keys
+  workload_identity_federation = var.workload_identity_federation == null ? null : {
+    pool_id = google_iam_workload_identity_pool.meshstack[0].name
+    subject = var.workload_identity_federation.replicator_subject
+  }
 }
 
 module "carbon_export" {

@@ -3,13 +3,13 @@
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_google"></a> [google](#requirement\_google) | 4.11.0 |
+| <a name="requirement_google"></a> [google](#requirement\_google) | 5.19.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 4.11.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 5.19.0 |
 
 ## Modules
 
@@ -19,7 +19,7 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [google_bigquery_dataset_iam_member.read_carbon_export](https://registry.terraform.io/providers/hashicorp/google/4.11.0/docs/resources/bigquery_dataset_iam_member) | resource |
+| [google_bigquery_dataset_iam_member.read_carbon_export](https://registry.terraform.io/providers/hashicorp/google/5.19.0/docs/resources/bigquery_dataset_iam_member) | resource |
 
 ## Inputs
 

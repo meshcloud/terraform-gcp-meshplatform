@@ -27,3 +27,15 @@ variable "landing_zone_folder_ids" {
   type        = set(string)
   description = "GCP Folders that make up the Landing Zone. The service account will only receive permissions on these folders."
 }
+
+variable "service_account_key" {
+  default = true
+  type    = bool
+}
+
+variable "workload_identity_federation" {
+  type = object({
+    pool_id = string
+    subject = string
+  })
+}

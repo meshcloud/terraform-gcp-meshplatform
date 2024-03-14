@@ -89,6 +89,20 @@ resource "google_billing_account_iam_member" "replicator_service" {
 }
 
 resource "google_service_account_key" "sa_key" {
+  count              = var.service_account_key ? 1 : 0
   service_account_id = google_service_account.replicator_service.id
 }
 
+moved {
+  from = google_service_account_key.sa_key
+  to   = google_service_account_key.sa_key[0]
+}
+
+# For workload identity federation create an IAM policy allowing the replicator subject to impersonate the service account.
+resource "google_service_account_iam_member" "replicator" {
+  count = var.workload_identity_federation == null ? 0 : 1
+
+  service_account_id = google_service_account.replicator_service.id
+  role               = "roles/iam.workloadIdentityUser"
+  member             = "principal://iam.googleapis.com/${var.workload_identity_federation.pool_id}/subject/${var.workload_identity_federation.subject}"
+}

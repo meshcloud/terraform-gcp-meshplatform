@@ -27,3 +27,15 @@ variable "billing_account_id" {
   type        = string
   description = "The GCP Billing Account in your organization."
 }
+
+variable "service_account_key" {
+  default = true
+  type    = bool
+}
+
+variable "workload_identity_federation" {
+  type = object({
+    pool_id = string
+    subject = string
+  })
+}

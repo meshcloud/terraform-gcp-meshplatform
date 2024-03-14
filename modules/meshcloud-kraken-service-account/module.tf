@@ -50,8 +50,21 @@ resource "google_folder_iam_member" "kraken_service" {
   member = "serviceAccount:${google_service_account.meshcloud_kraken_sa.email}"
 }
 
-# You can obtain the json representation of the sa key to put it into vault
-# from the terraform state. Simply base64 decode what's in the private_key field
 resource "google_service_account_key" "sa_key" {
+  count              = var.service_account_key ? 1 : 0
   service_account_id = google_service_account.meshcloud_kraken_sa.id
+}
+
+moved {
+  from = google_service_account_key.sa_key
+  to   = google_service_account_key.sa_key[0]
+}
+
+# For workload identity federation create an IAM policy allowing the kraken subject to impersonate the service account.
+resource "google_service_account_iam_member" "kraken" {
+  count = var.workload_identity_federation == null ? 0 : 1
+
+  service_account_id = google_service_account.meshcloud_kraken_sa.id
+  role               = "roles/iam.workloadIdentityUser"
+  member             = "principal://iam.googleapis.com/${var.workload_identity_federation.pool_id}/subject/${var.workload_identity_federation.subject}"
 }
