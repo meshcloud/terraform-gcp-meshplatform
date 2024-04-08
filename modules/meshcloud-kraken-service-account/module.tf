@@ -68,3 +68,12 @@ resource "google_service_account_iam_member" "kraken" {
   role               = "roles/iam.workloadIdentityUser"
   member             = "principal://iam.googleapis.com/${var.workload_identity_federation.pool_id}/subject/${var.workload_identity_federation.subject}"
 }
+
+# Cloud functions must be called with ID tokens but after impersonation we only have an access token and must explicitly create an ID token.
+resource "google_service_account_iam_member" "kraken_id_token" {
+  for_each = var.workload_identity_federation == null ? {} : { 0 = "roles/iam.serviceAccountOpenIdTokenCreator", 1 = "roles/iam.serviceAccountTokenCreator" }
+
+  service_account_id = google_service_account.meshcloud_kraken_sa.id
+  role               = each.value
+  member             = "serviceAccount:${google_service_account.meshcloud_kraken_sa.email}"
+}
