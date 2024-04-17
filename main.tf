@@ -26,6 +26,8 @@ module "replicator_sa" {
 
   landing_zone_folder_ids = var.landing_zone_folder_ids
 
+  can_delete_projects_in_landing_zone_folder_ids = var.can_delete_projects_in_landing_zone_folder_ids
+
   billing_account_id = var.billing_account_id
 
   service_account_key = var.service_account_keys
