@@ -72,6 +72,14 @@ resource "google_folder_iam_member" "replicator_service" {
   member = "serviceAccount:${google_service_account.replicator_service.email}"
 }
 
+resource "google_folder_iam_member" "replicator_service_project_deleter" {
+  for_each = var.can_delete_projects_in_landing_zone_folder_ids
+
+  folder = each.value
+  role   = "roles/resourcemanager.projectDeleter"
+  member = "serviceAccount:${google_service_account.replicator_service.email}"
+}
+
 /*
   Billing Accounts are associated with an organization and can thus inherit organization level role assignments
   see https://cloud.google.com/billing/docs/how-to/billing-access).
