@@ -26,6 +26,7 @@ No modules.
 | [google_project_service.bigquery_api](https://registry.terraform.io/providers/hashicorp/google/5.19.0/docs/resources/project_service) | resource |
 | [google_service_account.meshcloud_kraken_sa](https://registry.terraform.io/providers/hashicorp/google/5.19.0/docs/resources/service_account) | resource |
 | [google_service_account_iam_member.kraken](https://registry.terraform.io/providers/hashicorp/google/5.19.0/docs/resources/service_account_iam_member) | resource |
+| [google_service_account_iam_member.kraken_id_token](https://registry.terraform.io/providers/hashicorp/google/5.19.0/docs/resources/service_account_iam_member) | resource |
 | [google_service_account_key.sa_key](https://registry.terraform.io/providers/hashicorp/google/5.19.0/docs/resources/service_account_key) | resource |
 
 ## Inputs

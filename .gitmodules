@@ -1,0 +1,3 @@
+[submodule "shared-workflows"]
+	path = shared-workflows
+	url = https://github.com/meshcloud/shared-workflows.git

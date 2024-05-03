@@ -1,6 +1,6 @@
 # GCP meshPlatform Module
 
-Terraform module to integrate GCP as a meshPlatform into meshStack instance. With this module, service accounts used by meshStack are created with the required permissions. The output of this module is a set of credentials that need to be configured in meshStack as described in [meshcloud public docs](https://docs.meshcloud.io/docs/meshstack.how-to.integrate-meshplatform.html). 
+Terraform module to integrate GCP as a meshPlatform into meshStack instance. With this module, service accounts used by meshStack are created with the required permissions. The output of this module is a set of credentials that need to be configured in meshStack as described in [meshcloud public docs](https://docs.meshcloud.io/docs/meshstack.how-to.integrate-meshplatform.html).
 
 <p align="center">
   <img src="/.github/Icon_GCP_Meshi_Hugs.png" width="250">
@@ -57,25 +57,26 @@ To run this module, you need the following:
 
   You can create [custom roles](./custom-roles/main.tf) and assign them to the identity applying those modules.
 
+  Additionally, after the module has run, replicator service account needs to be granted a role in the Admin Console (Workspace). This can only be done by `Super Administrators`.
+
 - [Terraform installed](https://learn.hashicorp.com/tutorials/terraform/install-cli)
 - [gcloud installed](https://cloud.google.com/sdk/docs/install)
+- A GCP Project
 
-Additionally, after the module has run, one of the Service Accounts needs to be granted a role in the Admin Console (Workspace). This can only be done by Super Administrators.
+  Before using this module, you need a gcp project. We recommend creating a new project for meshcloud service accounts.
+
+  You can create a gcp project by adding this terraform block to your terraform file:
+
+  ```hcl
+  resource "google_project" "meshstack_root" {
+    name               = <PROJECT_NAME>
+    project_id         = <PROJECT_ID>
+    folder_id          = <FOLDER_ID>
+    billing_account    = <BILLING_ACCOUNT_ID>
+  }
+  ```
 
 ## How to Use This Module
-
-Before using this module, you need a gcp project. We recommend creating a new project for meshcloud service accounts.
-
-You can create a gcp project by adding this terraform block to your terraform file:
-
-```hcl
-resource "google_project" "meshstack_root" {
-  name               = <PROJECT_NAME>
-  project_id         = <PROJECT_ID>
-  folder_id          = <FOLDER_ID>
-  billing_account    = <BILLING_ACCOUNT_ID>
-}
-```
 
 To provide some of the required variables, you will need to
 
@@ -90,27 +91,32 @@ To provide some of the required variables, you will need to
    gcloud auth application-default login
    ```
 
-2. Download the example `main.tf` and `outputs.tf` files.
+2. Create a terraform file that calls this module and produces outputs. Similar to:
 
-    ```sh
-    # Downloads main.tf and outputs.tf files into ~/terraform-gcp-meshplatform
-    wget https://raw.githubusercontent.com/meshcloud/terraform-gcp-meshplatform/main/examples/basic-gcp-integration/main.tf -P ~/terraform-gcp-meshplatform
-    wget https://raw.githubusercontent.com/meshcloud/terraform-gcp-meshplatform/main/examples/basic-gcp-integration/outputs.tf -P ~/terraform-gcp-meshplatform
+    ```hcl
+    module "meshplatform" {
+      source = "git::https://github.com/meshcloud/terraform-gcp-meshplatform.git"
+      # FILL INPUTS
+    }
+
+    output "meshplatform" {
+      sensitive = true
+      value     = module.meshplatform
+    }
     ```
+
+    > It is highly recommended to configure a [terraform backend](https://developer.hashicorp.com/terraform/language/settings/backends/configuration), otherwise you risk losing track of your applied resources.
 
 3. Execute the module.
 
     ```sh
-    # Changes into ~/terraform-gcp-meshplatform and applies terraform
-    cd ~/terraform-gcp-meshplatform
     terraform init
     terraform apply
     ```
 
-4. Access terraform output and pass it securely to meshcloud.
+4. Access terraform output to insert it in meshStack platform config.
 
     ```sh
-    # The JSON output contains sensitive values that must not be transmitted to meshcloud in plain text.
     terraform output -json
     ```
 
@@ -119,19 +125,17 @@ To provide some of the required variables, you will need to
     The replicator service account needs the "Groups Admin" role from the Admin Console (Workspace) to manage permissions for managed GCP projects.
     To authorize the Service Account **via the Google Admin Console** navigate to `@Account` in the sidebar and then `Admin Roles -> Groups Admin` and click `Assign Service Accounts`. In the prompt that appears, enter the service account email, which looks like `user@project.iam.gserviceaccount.com`.
 
-## Example Usages
-
-Check [examples](./examples/) for different use cases. As a quick start we recommend using [basic-gcp-integration](./examples/basic-gcp-integration) example.
-
 ## Contributing Guide
 
-Before opening a Pull Request, we recommend following the below steps to get a faster approval:
+Before opening a Pull Request, please do the following:
 
 1. Install [pre-commit](https://pre-commit.com/#install)
 
    We use pre-commit to perform several terraform related tasks such as `terraform validate`, `terraform fmt`, and generating terraform docs with `terraform_docs`
 
 2. Execute `pre-commit install`: Hooks configured in `.pre-commit-config.yaml` will be executed automatically on commit. For manual execution, you can use `pre-commit run -a`.
+
+To update git submodules, execute `git submodule foreach git pull`.
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
@@ -167,6 +171,7 @@ Before opening a Pull Request, we recommend following the below steps to get a f
 |------|-------------|------|---------|:--------:|
 | <a name="input_billing_account_id"></a> [billing\_account\_id](#input\_billing\_account\_id) | The GCP billing account in your organization. | `string` | n/a | yes |
 | <a name="input_billing_org_id"></a> [billing\_org\_id](#input\_billing\_org\_id) | GCP organization ID that holds billing account. | `string` | n/a | yes |
+| <a name="input_can_delete_projects_in_landing_zone_folder_ids"></a> [can\_delete\_projects\_in\_landing\_zone\_folder\_ids](#input\_can\_delete\_projects\_in\_landing\_zone\_folder\_ids) | The service account will have projectDeleter role only on the specified landing zone IDs. | `set(string)` | `[]` | no |
 | <a name="input_carbon_export_module_enabled"></a> [carbon\_export\_module\_enabled](#input\_carbon\_export\_module\_enabled) | Determines whether or not to include the resources of the carbon footprint export module. | `bool` | `false` | no |
 | <a name="input_cloud_billing_export_dataset_id"></a> [cloud\_billing\_export\_dataset\_id](#input\_cloud\_billing\_export\_dataset\_id) | GCP BigQuery dataset containing the Cloud Billing BigQuery export.<br><br>    **ATTENTION**<br>    You need to manually configure the billing account big query export before exceuting this module.<br>    See https://docs.meshcloud.io/docs/meshstack.how-to.integrate-meshplatform-gcp-manually.html#set-up-gcp-billing-data-export for instructions. | `string` | n/a | yes |
 | <a name="input_cloud_billing_export_project_id"></a> [cloud\_billing\_export\_project\_id](#input\_cloud\_billing\_export\_project\_id) | GCP Project where the BiqQuery table resides that holds the Cloud Billing export to BigQuery. See https://cloud.google.com/billing/docs/how-to/export-data-bigquery | `string` | n/a | yes |

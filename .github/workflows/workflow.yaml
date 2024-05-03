@@ -6,19 +6,5 @@ on:
     types: [checks_requested]
 
 jobs:
-  validate:
-    name: Validate
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v1
-
-      - uses: hashicorp/setup-terraform@v3
-        with:
-          terraform_version: "1.5"
-
-      - run: terraform init
-
-      - run: terraform validate
-
-      - run: terraform fmt -recursive -check
+  build:
+    uses: meshcloud/shared-workflows/.github/workflows/terraform-meshplatform-modules-build-workflow.yml@main
