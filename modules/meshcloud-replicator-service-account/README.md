@@ -21,6 +21,7 @@ No modules.
 |------|------|
 | [google_billing_account_iam_member.replicator_service](https://registry.terraform.io/providers/hashicorp/google/5.19.0/docs/resources/billing_account_iam_member) | resource |
 | [google_folder_iam_member.replicator_service](https://registry.terraform.io/providers/hashicorp/google/5.19.0/docs/resources/folder_iam_member) | resource |
+| [google_folder_iam_member.replicator_service_project_deleter](https://registry.terraform.io/providers/hashicorp/google/5.19.0/docs/resources/folder_iam_member) | resource |
 | [google_organization_iam_custom_role.replicator_billing](https://registry.terraform.io/providers/hashicorp/google/5.19.0/docs/resources/organization_iam_custom_role) | resource |
 | [google_organization_iam_custom_role.replicator_service](https://registry.terraform.io/providers/hashicorp/google/5.19.0/docs/resources/organization_iam_custom_role) | resource |
 | [google_project_service.admin_api](https://registry.terraform.io/providers/hashicorp/google/5.19.0/docs/resources/project_service) | resource |
@@ -28,6 +29,7 @@ No modules.
 | [google_project_service.cloudresourcemanager_api](https://registry.terraform.io/providers/hashicorp/google/5.19.0/docs/resources/project_service) | resource |
 | [google_service_account.replicator_service](https://registry.terraform.io/providers/hashicorp/google/5.19.0/docs/resources/service_account) | resource |
 | [google_service_account_iam_member.replicator](https://registry.terraform.io/providers/hashicorp/google/5.19.0/docs/resources/service_account_iam_member) | resource |
+| [google_service_account_iam_member.replicator_id_token](https://registry.terraform.io/providers/hashicorp/google/5.19.0/docs/resources/service_account_iam_member) | resource |
 | [google_service_account_key.sa_key](https://registry.terraform.io/providers/hashicorp/google/5.19.0/docs/resources/service_account_key) | resource |
 
 ## Inputs
@@ -36,6 +38,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_billing_account_id"></a> [billing\_account\_id](#input\_billing\_account\_id) | The GCP Billing Account in your organization. | `string` | n/a | yes |
 | <a name="input_billing_org_id"></a> [billing\_org\_id](#input\_billing\_org\_id) | GCP Organization Id that holds billing account | `string` | n/a | yes |
+| <a name="input_can_delete_projects_in_landing_zone_folder_ids"></a> [can\_delete\_projects\_in\_landing\_zone\_folder\_ids](#input\_can\_delete\_projects\_in\_landing\_zone\_folder\_ids) | The service account will have projectDeleter role only on the specified landing zone IDs. | `set(string)` | `[]` | no |
 | <a name="input_landing_zone_folder_ids"></a> [landing\_zone\_folder\_ids](#input\_landing\_zone\_folder\_ids) | GCP Folders that make up the Landing Zone. The service account will only receive permissions on these folders. | `set(string)` | n/a | yes |
 | <a name="input_org_id"></a> [org\_id](#input\_org\_id) | GCP Organization Id | `string` | n/a | yes |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | GCP Project ID where to create the resources. This is typically a 'meshstack-root' project | `string` | n/a | yes |
