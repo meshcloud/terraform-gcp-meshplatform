@@ -135,8 +135,6 @@ Before opening a Pull Request, please do the following:
 
 2. Execute `pre-commit install`: Hooks configured in `.pre-commit-config.yaml` will be executed automatically on commit. For manual execution, you can use `pre-commit run -a`.
 
-To update git submodules, execute `git submodule foreach git pull`.
-
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
