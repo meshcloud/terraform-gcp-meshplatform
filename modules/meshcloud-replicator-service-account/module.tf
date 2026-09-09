@@ -44,12 +44,6 @@ resource "google_organization_iam_custom_role" "replicator_service" {
 
     "serviceusage.services.enable",
     "serviceusage.services.get",
-
-    # The following permissions are required for GDM Integration
-    "deploymentmanager.deployments.delete",
-    "deploymentmanager.deployments.create",
-    "deploymentmanager.deployments.update",
-    "deploymentmanager.deployments.get",
   ]
 }
 
