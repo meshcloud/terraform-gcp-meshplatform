@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Removed
+
+- Google Cloud Deployment Manager support: the `meshcloud-replicator-lz-access-gdm-template` module and the `deploymentmanager.deployments.*` permissions of the replicator service account. meshStack no longer supports GDM templates.
+
 ## [v0.3.0]
 
 ### Added

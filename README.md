@@ -49,10 +49,7 @@ To run this module, you need the following:
     "resourcemanager.folders.getIamPolicy",
     "resourcemanager.folders.setIamPolicy",
     "billing.accounts.getIamPolicy",
-    "billing.accounts.setIamPolicy",
-    # Only required when you need your landing zone to access the bucket containing your GDM templates
-    "storage.buckets.getIamPolicy",
-    "storage.buckets.setIamPolicy"
+    "billing.accounts.setIamPolicy"
     ```
 
   You can create [custom roles](./custom-roles/main.tf) and assign them to the identity applying those modules.
